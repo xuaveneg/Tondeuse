@@ -17,6 +17,6 @@ public class LawnBuilderTest {
                 .build();
 
         // THEN
-        assertEquals(new LawnImpl(new Position(4, 5), new MowerListMock()), lawn);
+        assertEquals(new LawnImpl(new Position(4, 5), new MowerListImpl()), lawn);
     }
 }

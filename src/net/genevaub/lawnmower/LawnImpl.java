@@ -27,18 +27,20 @@ public class LawnImpl implements Lawn {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LawnImpl lawn = (LawnImpl) o;
-        return Objects.equals(size, lawn.size);
+        return Objects.equals(size, lawn.size) &&
+                Objects.equals(mowerListMock, lawn.mowerListMock);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size);
+        return Objects.hash(size, mowerListMock);
     }
 
     @Override
     public String toString() {
         return "LawnImpl{" +
                 "size=" + size +
+                ", mowerListMock=" + mowerListMock +
                 '}';
     }
 }
