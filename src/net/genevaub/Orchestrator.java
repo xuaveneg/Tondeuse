@@ -1,12 +1,14 @@
 package net.genevaub;
 
+import net.genevaub.file.Parser;
+
 import java.io.PrintStream;
 
 public class Orchestrator {
 
     private PrintStream printStream;
 
-    Orchestrator(PrintStream printStream, String inputFile) {
+    Orchestrator(PrintStream printStream, String inputFile, Parser parser) {
         this.printStream = printStream;
     }
 

@@ -14,7 +14,7 @@ public class MainTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
-        Orchestrator testRunner = new Orchestrator(printStream, "input.txt");
+        Orchestrator testRunner = new Orchestrator(printStream, "input.txt", null);
 
         // WHEN
         testRunner.compute();
