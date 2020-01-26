@@ -13,7 +13,6 @@ public class Mower {
     }
 
     public void move(Move move) {
-        System.out.println("Move " + move + " from position " + position + " for direction " + direction);
         if (Move.FORWARD.equals(move)) {
             position = position.translate(direction);
             return;
