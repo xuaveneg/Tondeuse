@@ -3,7 +3,6 @@ package net.genevaub.file;
 import net.genevaub.lawnmower.*;
 
 public class LineReaderImpl implements LineReader {
-
     private Lawn lawn;
     private LineType currentLineType = LineType.LAWN_SIZE;
     private final LawnBuilder lawnBuilder;
@@ -21,6 +20,11 @@ public class LineReaderImpl implements LineReader {
             readMowerMovesLine(line);
         }
         switchToNextLineType();
+    }
+
+    @Override
+    public void print() {
+        lawn.print();
     }
 
     private void readMowerMovesLine(String line) {

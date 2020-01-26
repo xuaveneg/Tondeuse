@@ -6,7 +6,6 @@ import net.genevaub.file.Parser;
 import net.genevaub.file.ParserImpl;
 import net.genevaub.lawnmower.LawnBuilder;
 import net.genevaub.lawnmower.LawnBuilderImpl;
-import net.genevaub.lawnmower.LawnImpl;
 import net.genevaub.utils.FileUtils;
 import org.junit.Test;
 
@@ -22,17 +21,16 @@ public class MainTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
-        Orchestrator testRunner = new Orchestrator(printStream);
-        LawnBuilder lawnBuilder = new LawnBuilderImpl();
+        LawnBuilder lawnBuilder = new LawnBuilderImpl(printStream);
         LineReader lineReader = new LineReaderImpl(lawnBuilder);
         Parser fileParser = new ParserImpl(lineReader);
 
         // WHEN
-        testRunner.compute(fileParser, FileUtils.getTestResourceFile("input.txt"));
+        fileParser.parse(FileUtils.getTestResourceFile("input.txt"));
 
         // THEN
         String output = new String(outputStream.toByteArray());
-        assertEquals("1 3 N\r\n" +
-                "5 1 E\r\n", output);
+        assertEquals("1 3 N\n" +
+                "5 1 E", output);
     }
 }

@@ -11,12 +11,11 @@ import net.genevaub.lawnmower.LawnImpl;
 public class Main {
 
     public static void main(String[] args) {
-        Orchestrator runner = new Orchestrator(System.out);
-        LawnBuilder lawnBuilder = new LawnBuilderImpl();
+        LawnBuilder lawnBuilder = new LawnBuilderImpl(System.out);
         LineReader lineReader = new LineReaderImpl(lawnBuilder);
         Parser fileParser = new ParserImpl(lineReader);
         String fileName = args[0];
-        runner.compute(fileParser, fileName);
+        fileParser.parse(fileName);
     }
 
 }

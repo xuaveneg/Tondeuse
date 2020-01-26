@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ParserImpl implements Parser {
-
     private final LineReader lineReader;
 
     public ParserImpl(LineReader lineReader) {
@@ -34,6 +33,7 @@ public class ParserImpl implements Parser {
             readLine(line);
             line = bufferedReader.readLine();
         }
+        lineReader.print();
     }
 
     private void readLine(String line) {

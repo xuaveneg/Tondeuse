@@ -10,6 +10,11 @@ public class LineReaderMock implements LineReader {
         nLineRead++;
     }
 
+    @Override
+    public void print() {
+
+    }
+
     public int getNLineRead() {
         return nLineRead;
     }

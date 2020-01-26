@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MowerListImpl implements MowerList {
-
-    protected List<Mower> mowers = new ArrayList<>();
+    protected final List<Mower> mowers = new ArrayList<>();
 
     @Override
     public void addMower(Mower mower) {

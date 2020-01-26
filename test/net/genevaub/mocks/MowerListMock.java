@@ -9,7 +9,7 @@ import java.util.*;
 
 public class MowerListMock implements MowerList {
 
-    List<List<Move>> moves = new ArrayList<>();
+    final List<List<Move>> moves = new ArrayList<>();
 
     @Override
     public void addMower(Mower mower) {

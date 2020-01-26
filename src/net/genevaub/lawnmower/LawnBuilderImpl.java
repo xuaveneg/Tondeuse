@@ -1,8 +1,14 @@
 package net.genevaub.lawnmower;
 
-public class LawnBuilderImpl implements LawnBuilder {
+import java.io.PrintStream;
 
+public class LawnBuilderImpl implements LawnBuilder {
+    private final PrintStream stream;
     private Position size;
+
+    public LawnBuilderImpl(PrintStream stream) {
+        this.stream = stream;
+    }
 
     @Override
     public LawnBuilder withSize(Position size) {
@@ -12,6 +18,6 @@ public class LawnBuilderImpl implements LawnBuilder {
 
     @Override
     public Lawn build() {
-        return new LawnImpl(size, new MowerListImpl());
+        return new LawnImpl(size, new MowerListImpl(), stream);
     }
 }

@@ -3,7 +3,6 @@ package net.genevaub.lawnmower;
 import java.util.Objects;
 
 public class Mower {
-
     private Position position;
     private Direction direction;
 
