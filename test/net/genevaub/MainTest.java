@@ -2,6 +2,7 @@ package net.genevaub;
 
 import net.genevaub.file.Parser;
 import net.genevaub.file.ParserImpl;
+import net.genevaub.lawnmower.LawnBuilderImpl;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -17,7 +18,7 @@ public class MainTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         Orchestrator testRunner = new Orchestrator(printStream);
-        Parser fileParser = new ParserImpl();
+        Parser fileParser = new ParserImpl(new LawnBuilderImpl());
 
         // WHEN
         testRunner.compute(fileParser, "input.txt");
