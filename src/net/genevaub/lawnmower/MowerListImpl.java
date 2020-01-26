@@ -3,7 +3,6 @@ package net.genevaub.lawnmower;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class MowerListImpl implements MowerList {
 
@@ -18,6 +17,22 @@ public class MowerListImpl implements MowerList {
     public void moveLastMower(Move move, Position limit) {
         Mower lastMower = mowers.get(mowers.size() - 1);
         lastMower.move(move, limit);
+    }
+
+    @Override
+    public void print(StringBuilder printer) {
+        StringBuilder listPrinter = new StringBuilder();
+        for (Mower mower : mowers) {
+            appendNewlineIfNotEmpty(listPrinter);
+            mower.print(listPrinter);
+        }
+        printer.append(listPrinter);
+    }
+
+    private void appendNewlineIfNotEmpty(StringBuilder listPrinter) {
+        if (listPrinter.length() != 0) {
+            listPrinter.append('\n');
+        }
     }
 
     @Override

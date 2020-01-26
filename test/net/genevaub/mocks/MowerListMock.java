@@ -21,6 +21,11 @@ public class MowerListMock implements MowerList {
         moves.get(moves.size()-1).add(move);
     }
 
+    @Override
+    public void print(StringBuilder printer) {
+
+    }
+
     public int getSize() {
         return moves.size();
     }
