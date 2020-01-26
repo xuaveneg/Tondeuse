@@ -31,6 +31,12 @@ public class Position {
         return new Position(newX, newY);
     }
 
+    public void print(StringBuilder printer) {
+        printer.append(x);
+        printer.append(' ');
+        printer.append(y);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

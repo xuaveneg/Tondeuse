@@ -101,4 +101,30 @@ public class PositionTest {
         // THEN
         assertEquals(new Position(2, 2), translated);
     }
+
+    @Test
+    public void should_print_position_in_string_builder() {
+        // GIVEN
+        Position position = new Position(2, 3);
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        position.print(printer);
+
+        // THEN
+        assertEquals("2 3", printer.toString());
+    }
+
+    @Test
+    public void should_print_other_position_in_string_builder() {
+        // GIVEN
+        Position position = new Position(5, 4);
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        position.print(printer);
+
+        // THEN
+        assertEquals("5 4", printer.toString());
+    }
 }
