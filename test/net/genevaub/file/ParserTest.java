@@ -2,7 +2,6 @@ package net.genevaub.file;
 
 import net.genevaub.lawnmower.Position;
 import net.genevaub.mocks.LawnBuilderMock;
-import net.genevaub.mocks.LawnMock;
 import net.genevaub.mocks.LineReaderMock;
 import net.genevaub.utils.FileUtils;
 import org.junit.Test;
@@ -14,8 +13,8 @@ public class ParserTest {
     @Test
     public void should_create_lawn_with_right_size_from_first_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
-        Parser parser = new ParserImpl(new LineReaderImpl(lawnBuilderMock));
+        final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
+        final Parser parser = new ParserImpl(new LineReaderImpl(lawnBuilderMock));
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-line-file.txt"));
@@ -27,8 +26,8 @@ public class ParserTest {
     @Test
     public void should_read_one_line() {
         // GIVEN
-        LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lineReaderMock);
+        final LineReaderMock lineReaderMock = new LineReaderMock();
+        final Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-line-file.txt"));
@@ -40,8 +39,8 @@ public class ParserTest {
     @Test
     public void should_read_three_line() {
         // GIVEN
-        LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lineReaderMock);
+        final LineReaderMock lineReaderMock = new LineReaderMock();
+        final Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-mower-file.txt"));
@@ -53,8 +52,8 @@ public class ParserTest {
     @Test
     public void should_read_five_line() {
         // GIVEN
-        LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lineReaderMock);
+        final LineReaderMock lineReaderMock = new LineReaderMock();
+        final Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("input.txt"));

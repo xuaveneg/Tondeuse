@@ -19,17 +19,17 @@ public class MainTest {
     @Test
     public void should_handle_main_test_from_pdf() {
         // GIVEN
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        LawnBuilder lawnBuilder = new LawnBuilderImpl(printStream);
-        LineReader lineReader = new LineReaderImpl(lawnBuilder);
-        Parser fileParser = new ParserImpl(lineReader);
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(outputStream);
+        final LawnBuilder lawnBuilder = new LawnBuilderImpl(printStream);
+        final LineReader lineReader = new LineReaderImpl(lawnBuilder);
+        final Parser fileParser = new ParserImpl(lineReader);
 
         // WHEN
         fileParser.parse(FileUtils.getTestResourceFile("input.txt"));
 
         // THEN
-        String output = new String(outputStream.toByteArray());
+        final String output = new String(outputStream.toByteArray());
         assertEquals("1 3 N\n" +
                 "5 1 E", output);
     }

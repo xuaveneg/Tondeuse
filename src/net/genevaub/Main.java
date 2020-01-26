@@ -6,15 +6,14 @@ import net.genevaub.file.Parser;
 import net.genevaub.file.ParserImpl;
 import net.genevaub.lawnmower.LawnBuilder;
 import net.genevaub.lawnmower.LawnBuilderImpl;
-import net.genevaub.lawnmower.LawnImpl;
 
 public class Main {
 
-    public static void main(String[] args) {
-        LawnBuilder lawnBuilder = new LawnBuilderImpl(System.out);
-        LineReader lineReader = new LineReaderImpl(lawnBuilder);
-        Parser fileParser = new ParserImpl(lineReader);
-        String fileName = args[0];
+    public static void main(final String[] args) {
+        final LawnBuilder lawnBuilder = new LawnBuilderImpl(System.out);
+        final LineReader lineReader = new LineReaderImpl(lawnBuilder);
+        final Parser fileParser = new ParserImpl(lineReader);
+        final String fileName = args[0];
         fileParser.parse(fileName);
     }
 

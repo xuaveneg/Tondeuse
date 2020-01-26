@@ -7,30 +7,25 @@ import java.util.List;
 
 public class LawnMock implements Lawn {
     private final Position size;
-    private List<Mower> mowers = new ArrayList<>();
+    private final List<Mower> mowers = new ArrayList<>();
 
-    public LawnMock(Position size) {
+    public LawnMock(final Position size) {
         this.size = size;
     }
 
-
     @Override
-    public void addMower(Position initialPosition, Direction direction) {
+    public void addMower(final Position initialPosition, final Direction direction) {
         mowers.add(new Mower(initialPosition, direction));
     }
 
     @Override
-    public void moveLastMower(Move move) {
+    public void moveLastMower(final Move move) {
         mowers.get(mowers.size() - 1).move(move, size);
     }
 
     @Override
     public void print() {
 
-    }
-
-    public Position getSize() {
-        return size;
     }
 
     public List<Mower> getMowers() {

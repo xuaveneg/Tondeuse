@@ -16,8 +16,8 @@ public class LawnTest {
     @Test
     public void should_add_one_mower_on_lawn() {
         // GIVEN
-        MowerListMock mowerListMock = new MowerListMock();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
 
         // WHEN
         lawn.addMower(new Position(3, 3), Direction.SOUTH);
@@ -29,8 +29,8 @@ public class LawnTest {
     @Test
     public void should_add_three_mower_on_lawn() {
         // GIVEN
-        MowerListMock mowerListMock = new MowerListMock();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
 
         // WHEN
         lawn.addMower(new Position(3, 3), Direction.SOUTH);
@@ -44,8 +44,8 @@ public class LawnTest {
     @Test
     public void should_move_mower_on_lawn() {
         // GIVEN
-        MowerListMock mowerListMock = new MowerListMock();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
 
         // WHEN
         lawn.addMower(new Position(3, 3), Direction.EAST);
@@ -58,8 +58,8 @@ public class LawnTest {
     @Test
     public void should_move_last_mower_on_lawn() {
         // GIVEN
-        MowerListMock mowerListMock = new MowerListMock();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
 
         // WHEN
         lawn.addMower(new Position(3, 3), Direction.EAST);
@@ -75,8 +75,8 @@ public class LawnTest {
     @Test
     public void should_move_intermediate_mower_on_lawn() {
         // GIVEN
-        MowerListMock mowerListMock = new MowerListMock();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
 
         // WHEN
         lawn.addMower(new Position(3, 3), Direction.EAST);
@@ -94,10 +94,10 @@ public class LawnTest {
     @Test
     public void should_print_in_stream_when_calling_print() {
         // GIVEN
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        MowerList mowerList = new MowerListImpl();
-        Lawn lawn = new LawnImpl(new Position(4, 4), mowerList, printStream);
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(outputStream);
+        final MowerList mowerList = new MowerListImpl();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerList, printStream);
         lawn.addMower(new Position(3, 3), Direction.EAST);
         lawn.addMower(new Position(3, 3), Direction.NORTH);
         lawn.moveLastMower(Move.LEFT);
@@ -110,7 +110,7 @@ public class LawnTest {
         lawn.print();
 
         // THEN
-        String output = new String(outputStream.toByteArray());
+        final String output = new String(outputStream.toByteArray());
         assertEquals("3 3 E\n" +
                 "2 3 W\n" +
                 "4 3 S", output);

@@ -1,11 +1,9 @@
 package net.genevaub.file;
 
-import net.genevaub.lawnmower.LawnBuilder;
-import net.genevaub.lawnmower.Mower;
 import net.genevaub.lawnmower.Direction;
+import net.genevaub.lawnmower.Mower;
 import net.genevaub.lawnmower.Position;
 import net.genevaub.mocks.LawnBuilderMock;
-import net.genevaub.mocks.LawnMock;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -15,8 +13,8 @@ public class LineReaderTest {
     @Test
     public void should_read_lawn_size_on_first_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
-        LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
+        final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
+        final LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
 
         // WHEN
         lineReader.readLine("3 4");
@@ -28,8 +26,8 @@ public class LineReaderTest {
     @Test
     public void should_read_mower_initial_position_on_second_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
-        LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
+        final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
+        final LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
 
         // WHEN
         lineReader.readLine("4 5");
@@ -43,8 +41,8 @@ public class LineReaderTest {
     @Test
     public void should_read_mower_moves_on_third_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
-        LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
+        final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
+        final LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
 
         // WHEN
         lineReader.readLine("5 4");

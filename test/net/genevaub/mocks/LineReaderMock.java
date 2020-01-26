@@ -6,7 +6,7 @@ public class LineReaderMock implements LineReader {
     private int nLineRead;
 
     @Override
-    public void readLine(String line) {
+    public void readLine(final String line) {
         nLineRead++;
     }
 

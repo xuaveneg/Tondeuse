@@ -9,8 +9,8 @@ public class MowerListTest {
     @Test
     public void should_add_and_move_mower_in_mower_list() {
         // GIVEN
-        MowerListImpl mowerList = new MowerListImpl();
-        Mower mower = new Mower(new Position(2, 3), Direction.SOUTH);
+        final MowerListImpl mowerList = new MowerListImpl();
+        final Mower mower = new Mower(new Position(2, 3), Direction.SOUTH);
 
         // WHEN
         mowerList.addMower(mower);
@@ -23,9 +23,9 @@ public class MowerListTest {
     @Test
     public void should_add_and_not_move_not_last_mower_in_mower_list() {
         // GIVEN
-        MowerListImpl mowerList = new MowerListImpl();
-        Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
-        Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
+        final MowerListImpl mowerList = new MowerListImpl();
+        final Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
+        final Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
 
         // WHEN
         mowerList.addMower(firstMower);
@@ -39,9 +39,9 @@ public class MowerListTest {
     @Test
     public void should_add_and_move_last_mower_in_mower_list() {
         // GIVEN
-        MowerListImpl mowerList = new MowerListImpl();
-        Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
-        Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
+        final MowerListImpl mowerList = new MowerListImpl();
+        final Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
+        final Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
 
         // WHEN
         mowerList.addMower(firstMower);
@@ -55,8 +55,8 @@ public class MowerListTest {
     @Test
     public void should_print_single_mower_list() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
-        MowerList mowerList = new MowerListImpl();
+        final StringBuilder printer = new StringBuilder();
+        final MowerList mowerList = new MowerListImpl();
         mowerList.addMower(new Mower(new Position(2, 3), Direction.SOUTH));
 
         // WHEN
@@ -69,8 +69,8 @@ public class MowerListTest {
     @Test
     public void should_print_three_mowers_list() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
-        MowerList mowerList = new MowerListImpl();
+        final StringBuilder printer = new StringBuilder();
+        final MowerList mowerList = new MowerListImpl();
         mowerList.addMower(new Mower(new Position(2, 3), Direction.SOUTH));
         mowerList.addMower(new Mower(new Position(1, 4), Direction.NORTH));
         mowerList.addMower(new Mower(new Position(0, 2), Direction.EAST));

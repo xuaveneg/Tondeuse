@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class FileUtils {
 
-    public static String getTestResourceFile(String resourceName) {
+    public static String getTestResourceFile(final String resourceName) {
         return Objects.requireNonNull(FileUtils.class
                 .getClassLoader()
                 .getResource(resourceName))

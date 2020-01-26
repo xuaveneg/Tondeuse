@@ -13,7 +13,7 @@ public class MoveTest {
         // GIVEN
 
         // WHEN
-        Optional<Move> d = Move.of('D');
+        final Optional<Move> d = Move.of('D');
 
         // THEN
         assertEquals(Optional.of(Move.RIGHT), d);
@@ -24,7 +24,7 @@ public class MoveTest {
         // GIVEN
 
         // WHEN
-        Optional<Move> g = Move.of('G');
+        final Optional<Move> g = Move.of('G');
 
         // THEN
         assertEquals(Optional.of(Move.LEFT), g);
@@ -35,7 +35,7 @@ public class MoveTest {
         // GIVEN
 
         // WHEN
-        Optional<Move> a = Move.of('A');
+        final Optional<Move> a = Move.of('A');
 
         // THEN
         assertEquals(Optional.of(Move.FORWARD), a);
@@ -46,7 +46,7 @@ public class MoveTest {
         // GIVEN
 
         // WHEN
-        Optional<Move> k = Move.of('K');
+        final Optional<Move> k = Move.of('K');
 
         // THEN
         assertEquals(Optional.empty(), k);

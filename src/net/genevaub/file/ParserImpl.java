@@ -8,26 +8,26 @@ import java.io.InputStreamReader;
 public class ParserImpl implements Parser {
     private final LineReader lineReader;
 
-    public ParserImpl(LineReader lineReader) {
+    public ParserImpl(final LineReader lineReader) {
         this.lineReader = lineReader;
     }
 
     @Override
-    public void parse(String input) {
-        try (FileInputStream inputStream = new FileInputStream(input)) {
+    public void parse(final String input) {
+        try (final FileInputStream inputStream = new FileInputStream(input)) {
             readInputStream(inputStream);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void readInputStream(FileInputStream inputStream) throws IOException {
-        try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+    private void readInputStream(final FileInputStream inputStream) throws IOException {
+        try (final InputStreamReader reader = new InputStreamReader(inputStream)) {
             readBuffered(new BufferedReader(reader));
         }
     }
 
-    private void readBuffered(BufferedReader bufferedReader) throws IOException {
+    private void readBuffered(final BufferedReader bufferedReader) throws IOException {
         String line = bufferedReader.readLine();
         while (line != null) {
             readLine(line);
@@ -36,7 +36,7 @@ public class ParserImpl implements Parser {
         lineReader.print();
     }
 
-    private void readLine(String line) {
+    private void readLine(final String line) {
         lineReader.readLine(line);
     }
 }

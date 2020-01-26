@@ -10,12 +10,12 @@ public enum Direction {
 
     private final char direction;
 
-    Direction(char direction) {
+    Direction(final char direction) {
         this.direction = direction;
     }
 
-    public static Optional<Direction> of(char direction) {
-        for (Direction toCompare : Direction.values()) {
+    public static Optional<Direction> of(final char direction) {
+        for (final Direction toCompare : Direction.values()) {
             if (toCompare.direction == direction) {
                 return Optional.of(toCompare);
             }
@@ -51,17 +51,17 @@ public enum Direction {
         return this;
     }
 
-    public Direction rotate(Move move) {
+    public Direction rotate(final Move move) {
         switch (move) {
             case LEFT:
-                return this.leftValue();
+                return leftValue();
             case RIGHT:
-                return this.rightValue();
+                return rightValue();
         }
         return this;
     }
 
-    public void print(StringBuilder printer) {
+    public void print(final StringBuilder printer) {
         printer.append(direction);
     }
 }

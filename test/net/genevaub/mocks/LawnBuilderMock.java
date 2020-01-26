@@ -9,7 +9,7 @@ public class LawnBuilderMock implements LawnBuilder {
     private LawnMock lawnMock;
 
     @Override
-    public LawnBuilder withSize(Position size) {
+    public LawnBuilder withSize(final Position size) {
         this.size = size;
         return this;
     }
@@ -21,7 +21,7 @@ public class LawnBuilderMock implements LawnBuilder {
     }
 
     public Position getSize() {
-        return this.size;
+        return size;
     }
 
     public LawnMock getLawnMock() {

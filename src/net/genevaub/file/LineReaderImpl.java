@@ -7,11 +7,11 @@ public class LineReaderImpl implements LineReader {
     private LineType currentLineType = LineType.LAWN_SIZE;
     private final LawnBuilder lawnBuilder;
 
-    public LineReaderImpl(LawnBuilder lawnBuilder) {
+    public LineReaderImpl(final LawnBuilder lawnBuilder) {
         this.lawnBuilder = lawnBuilder;
     }
 
-    public void readLine(String line) {
+    public void readLine(final String line) {
         if (LineType.LAWN_SIZE.equals(currentLineType)) {
             readLawnSizeLine(line);
         } else if (LineType.MOWER_INITIAL_POSITION.equals(currentLineType)) {
@@ -27,24 +27,24 @@ public class LineReaderImpl implements LineReader {
         lawn.print();
     }
 
-    private void readMowerMovesLine(String line) {
-        for (char token : line.toCharArray()) {
+    private void readMowerMovesLine(final String line) {
+        for (final char token : line.toCharArray()) {
             lawn.moveLastMower(Move.of(token).orElse(null));
         }
     }
 
-    private void readMowerInitialPositionLine(String line) {
-        String[] initialPositionTokens = line.split(" ");
-        int x = Integer.parseInt(initialPositionTokens[0]);
-        int y = Integer.parseInt(initialPositionTokens[1]);
-        char direction = initialPositionTokens[2].charAt(0);
+    private void readMowerInitialPositionLine(final String line) {
+        final String[] initialPositionTokens = line.split(" ");
+        final int x = Integer.parseInt(initialPositionTokens[0]);
+        final int y = Integer.parseInt(initialPositionTokens[1]);
+        final char direction = initialPositionTokens[2].charAt(0);
         lawn.addMower(new Position(x, y), Direction.of(direction).orElse(null));
     }
 
-    private void readLawnSizeLine(String line) {
-        String[] sizeTokens = line.split(" ");
-        int x = Integer.parseInt(sizeTokens[0]);
-        int y = Integer.parseInt(sizeTokens[1]);
+    private void readLawnSizeLine(final String line) {
+        final String[] sizeTokens = line.split(" ");
+        final int x = Integer.parseInt(sizeTokens[0]);
+        final int y = Integer.parseInt(sizeTokens[1]);
         lawn = lawnBuilder.withSize(new Position(x, y)).build();
     }
 

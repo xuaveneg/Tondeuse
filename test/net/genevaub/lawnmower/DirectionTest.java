@@ -13,7 +13,7 @@ public class DirectionTest {
         // GIVEN
 
         // WHEN
-        Optional<Direction> s = Direction.of('S');
+        final Optional<Direction> s = Direction.of('S');
 
         // THEN
         assertEquals(Optional.of(Direction.SOUTH), s);
@@ -24,7 +24,7 @@ public class DirectionTest {
         // GIVEN
 
         // WHEN
-        Optional<Direction> n = Direction.of('N');
+        final Optional<Direction> n = Direction.of('N');
 
         // THEN
         assertEquals(Optional.of(Direction.NORTH), n);
@@ -35,7 +35,7 @@ public class DirectionTest {
         // GIVEN
 
         // WHEN
-        Optional<Direction> e = Direction.of('E');
+        final Optional<Direction> e = Direction.of('E');
 
         // THEN
         assertEquals(Optional.of(Direction.EAST), e);
@@ -46,7 +46,7 @@ public class DirectionTest {
         // GIVEN
 
         // WHEN
-        Optional<Direction> w = Direction.of('W');
+        final Optional<Direction> w = Direction.of('W');
 
         // THEN
         assertEquals(Optional.of(Direction.WEST), w);
@@ -57,7 +57,7 @@ public class DirectionTest {
         // GIVEN
 
         // WHEN
-        Optional<Direction> a = Direction.of('A');
+        final Optional<Direction> a = Direction.of('A');
 
         // THEN
         assertEquals(Optional.empty(), a);
@@ -66,10 +66,10 @@ public class DirectionTest {
     @Test
     public void should_turn_south_from_west_when_left() {
         // GIVEN
-        Direction direction = Direction.WEST;
+        final Direction direction = Direction.WEST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.LEFT);
+        final Direction rotated = direction.rotate(Move.LEFT);
 
         // THEN
         assertEquals(Direction.SOUTH, rotated);
@@ -78,10 +78,10 @@ public class DirectionTest {
     @Test
     public void should_turn_east_from_south_when_left() {
         // GIVEN
-        Direction direction = Direction.SOUTH;
+        final Direction direction = Direction.SOUTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.LEFT);
+        final Direction rotated = direction.rotate(Move.LEFT);
 
         // THEN
         assertEquals(Direction.EAST, rotated);
@@ -90,10 +90,10 @@ public class DirectionTest {
     @Test
     public void should_turn_west_from_north_when_left() {
         // GIVEN
-        Direction direction = Direction.NORTH;
+        final Direction direction = Direction.NORTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.LEFT);
+        final Direction rotated = direction.rotate(Move.LEFT);
 
         // THEN
         assertEquals(Direction.WEST, rotated);
@@ -102,10 +102,10 @@ public class DirectionTest {
     @Test
     public void should_turn_north_from_east_when_left() {
         // GIVEN
-        Direction direction = Direction.EAST;
+        final Direction direction = Direction.EAST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.LEFT);
+        final Direction rotated = direction.rotate(Move.LEFT);
 
         // THEN
         assertEquals(Direction.NORTH, rotated);
@@ -114,10 +114,10 @@ public class DirectionTest {
     @Test
     public void should_turn_north_from_west_when_right() {
         // GIVEN
-        Direction direction = Direction.WEST;
+        final Direction direction = Direction.WEST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.RIGHT);
+        final Direction rotated = direction.rotate(Move.RIGHT);
 
         // THEN
         assertEquals(Direction.NORTH, rotated);
@@ -126,10 +126,10 @@ public class DirectionTest {
     @Test
     public void should_turn_west_from_south_when_right() {
         // GIVEN
-        Direction direction = Direction.SOUTH;
+        final Direction direction = Direction.SOUTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.RIGHT);
+        final Direction rotated = direction.rotate(Move.RIGHT);
 
         // THEN
         assertEquals(Direction.WEST, rotated);
@@ -138,10 +138,10 @@ public class DirectionTest {
     @Test
     public void should_turn_east_from_north_when_right() {
         // GIVEN
-        Direction direction = Direction.NORTH;
+        final Direction direction = Direction.NORTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.RIGHT);
+        final Direction rotated = direction.rotate(Move.RIGHT);
 
         // THEN
         assertEquals(Direction.EAST, rotated);
@@ -150,10 +150,10 @@ public class DirectionTest {
     @Test
     public void should_turn_south_from_east_when_right() {
         // GIVEN
-        Direction direction = Direction.EAST;
+        final Direction direction = Direction.EAST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.RIGHT);
+        final Direction rotated = direction.rotate(Move.RIGHT);
 
         // THEN
         assertEquals(Direction.SOUTH, rotated);
@@ -162,10 +162,10 @@ public class DirectionTest {
     @Test
     public void should_not_turn_from_west_when_forward() {
         // GIVEN
-        Direction direction = Direction.WEST;
+        final Direction direction = Direction.WEST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.FORWARD);
+        final Direction rotated = direction.rotate(Move.FORWARD);
 
         // THEN
         assertEquals(Direction.WEST, rotated);
@@ -174,10 +174,10 @@ public class DirectionTest {
     @Test
     public void should_not_turn_from_south_when_forward() {
         // GIVEN
-        Direction direction = Direction.SOUTH;
+        final Direction direction = Direction.SOUTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.FORWARD);
+        final Direction rotated = direction.rotate(Move.FORWARD);
 
         // THEN
         assertEquals(Direction.SOUTH, rotated);
@@ -186,10 +186,10 @@ public class DirectionTest {
     @Test
     public void should_not_turn_from_north_when_forward() {
         // GIVEN
-        Direction direction = Direction.NORTH;
+        final Direction direction = Direction.NORTH;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.FORWARD);
+        final Direction rotated = direction.rotate(Move.FORWARD);
 
         // THEN
         assertEquals(Direction.NORTH, rotated);
@@ -198,10 +198,10 @@ public class DirectionTest {
     @Test
     public void should_not_turn_from_east_when_forward() {
         // GIVEN
-        Direction direction = Direction.EAST;
+        final Direction direction = Direction.EAST;
 
         // WHEN
-        Direction rotated = direction.rotate(Move.FORWARD);
+        final Direction rotated = direction.rotate(Move.FORWARD);
 
         // THEN
         assertEquals(Direction.EAST, rotated);
@@ -210,7 +210,7 @@ public class DirectionTest {
     @Test
     public void should_print_east() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
+        final StringBuilder printer = new StringBuilder();
 
         // WHEN
         Direction.EAST.print(printer);
@@ -222,7 +222,7 @@ public class DirectionTest {
     @Test
     public void should_print_north() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
+        final StringBuilder printer = new StringBuilder();
 
         // WHEN
         Direction.NORTH.print(printer);
@@ -234,7 +234,7 @@ public class DirectionTest {
     @Test
     public void should_print_south() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
+        final StringBuilder printer = new StringBuilder();
 
         // WHEN
         Direction.SOUTH.print(printer);
@@ -246,7 +246,7 @@ public class DirectionTest {
     @Test
     public void should_print_west() {
         // GIVEN
-        StringBuilder printer = new StringBuilder();
+        final StringBuilder printer = new StringBuilder();
 
         // WHEN
         Direction.WEST.print(printer);

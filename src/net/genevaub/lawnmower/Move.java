@@ -9,12 +9,12 @@ public enum Move {
 
     private final char move;
 
-    Move(char move) {
+    Move(final char move) {
         this.move = move;
     }
 
-    public static Optional<Move> of(char move) {
-        for (Move toCompare : Move.values()) {
+    public static Optional<Move> of(final char move) {
+        for (final Move toCompare : Move.values()) {
             if (toCompare.move == move) {
                 return Optional.of(toCompare);
             }

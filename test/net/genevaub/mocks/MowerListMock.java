@@ -12,17 +12,17 @@ public class MowerListMock implements MowerList {
     final List<List<Move>> moves = new ArrayList<>();
 
     @Override
-    public void addMower(Mower mower) {
+    public void addMower(final Mower mower) {
         moves.add(new ArrayList<>());
     }
 
     @Override
-    public void moveLastMower(Move move, Position limit) {
+    public void moveLastMower(final Move move, final Position limit) {
         moves.get(moves.size()-1).add(move);
     }
 
     @Override
-    public void print(StringBuilder printer) {
+    public void print(final StringBuilder printer) {
 
     }
 
@@ -30,7 +30,7 @@ public class MowerListMock implements MowerList {
         return moves.size();
     }
 
-    public List<Move> getMoves(int i) {
+    public List<Move> getMoves(final int i) {
         return moves.get(i);
     }
 }

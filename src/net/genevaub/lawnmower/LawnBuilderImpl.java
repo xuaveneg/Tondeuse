@@ -6,12 +6,12 @@ public class LawnBuilderImpl implements LawnBuilder {
     private final PrintStream stream;
     private Position size;
 
-    public LawnBuilderImpl(PrintStream stream) {
+    public LawnBuilderImpl(final PrintStream stream) {
         this.stream = stream;
     }
 
     @Override
-    public LawnBuilder withSize(Position size) {
+    public LawnBuilder withSize(final Position size) {
         this.size = size;
         return this;
     }
