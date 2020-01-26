@@ -2,6 +2,7 @@ package net.genevaub.file;
 
 import net.genevaub.lawnmower.Direction;
 import net.genevaub.lawnmower.LawnBuilder;
+import net.genevaub.lawnmower.Move;
 import net.genevaub.lawnmower.Position;
 
 public class LineReaderImpl implements LineReader {
@@ -18,8 +19,16 @@ public class LineReaderImpl implements LineReader {
             readLawnSizeLine(line);
         } else if (LineType.MOWER_INITIAL_POSITION.equals(currentLineType)) {
             readMowerInitialPositionLine(line);
+        } else if (LineType.MOWER_MOVES.equals(currentLineType)) {
+            readMowerMovesLine(line);
         }
         switchToNextLineType();
+    }
+
+    private void readMowerMovesLine(String line) {
+        for (char token : line.toCharArray()) {
+            lawnBuilder.moveLastMower(Move.of(token).orElse(null));
+        }
     }
 
     private void readMowerInitialPositionLine(String line) {
@@ -27,7 +36,7 @@ public class LineReaderImpl implements LineReader {
         int x = Integer.parseInt(initialPositionTokens[0]);
         int y = Integer.parseInt(initialPositionTokens[1]);
         char direction = initialPositionTokens[2].charAt(0);
-        lawnBuilder.addMower(new Position(x, y), Direction.of(direction));
+        lawnBuilder.addMower(new Position(x, y), Direction.of(direction).orElse(null));
     }
 
     private void readLawnSizeLine(String line) {

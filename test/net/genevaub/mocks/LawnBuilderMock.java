@@ -1,9 +1,6 @@
 package net.genevaub.mocks;
 
-import net.genevaub.lawnmower.LawnBuilder;
-import net.genevaub.lawnmower.Mower;
-import net.genevaub.lawnmower.Direction;
-import net.genevaub.lawnmower.Position;
+import net.genevaub.lawnmower.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +17,11 @@ public class LawnBuilderMock implements LawnBuilder {
     @Override
     public void addMower(Position initialPosition, Direction direction) {
         mowers.add(new Mower(initialPosition, direction));
+    }
+
+    @Override
+    public void moveLastMower(Move move) {
+        mowers.get(mowers.size() - 1).move(move);
     }
 
     public Position getSize() {

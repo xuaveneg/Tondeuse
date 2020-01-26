@@ -4,12 +4,21 @@ import java.util.Objects;
 
 public class Mower {
 
-    private final Position position;
-    private final Direction direction;
+    private Position position;
+    private Direction direction;
 
     public Mower(Position position, Direction direction) {
         this.position = position;
         this.direction = direction;
+    }
+
+    public void move(Move move) {
+        System.out.println("Move " + move + " from position " + position + " for direction " + direction);
+        if (Move.FORWARD.equals(move)) {
+            position = position.translate(direction);
+            return;
+        }
+        direction = direction.rotate(move);
     }
 
     @Override

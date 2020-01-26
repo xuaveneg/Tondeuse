@@ -30,11 +30,27 @@ public class LineReaderTest {
         LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
 
         // WHEN
-        lineReader.readLine("3 4");
+        lineReader.readLine("4 5");
         lineReader.readLine("1 2 N");
 
         // THEN
         assertEquals(new Mower(new Position(1, 2), Direction.NORTH),
+                lawnBuilderMock.getMowers().get(0));
+    }
+
+    @Test
+    public void should_read_mower_moves_on_third_line() {
+        // GIVEN
+        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
+        LineReader lineReader = new LineReaderImpl(lawnBuilderMock);
+
+        // WHEN
+        lineReader.readLine("5 4");
+        lineReader.readLine("2 3 S");
+        lineReader.readLine("ADDAGADA");
+
+        // THEN
+        assertEquals(new Mower(new Position(1, 4), Direction.NORTH),
                 lawnBuilderMock.getMowers().get(0));
     }
 }

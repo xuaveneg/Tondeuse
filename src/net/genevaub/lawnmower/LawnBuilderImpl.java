@@ -10,4 +10,9 @@ public class LawnBuilderImpl implements LawnBuilder {
     public void addMower(Position initialPosition, Direction direction) {
 
     }
+
+    @Override
+    public void moveLastMower(Move move) {
+
+    }
 }
