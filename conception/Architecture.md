@@ -1,5 +1,11 @@
 # Architecture
 
+## Package `net.genevaub`
+
+Package principal
+- `net.genevaub.Main` classe d'entrée
+- `net.genevaub.Orchestrator` orchestrateur entre les différents éléments du projet
+
 ## Package `net.genevaub.lawnmower`
 
 Package gérant la tonte de pelouse

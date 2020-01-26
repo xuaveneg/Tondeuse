@@ -1,14 +1,10 @@
 package net.genevaub;
 
-import java.io.PrintStream;
-
 public class Main {
 
     public static void main(String[] args) {
-        mainWithPrinter(args, System.out);
+        Orchestrator runner = new Orchestrator(System.out, args[0]);
+        runner.compute();
     }
 
-    static void mainWithPrinter(String[] args, PrintStream out) {
-
-    }
 }

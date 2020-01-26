@@ -14,13 +14,14 @@ public class MainTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
-        String[] inputFileArgs = new String[] {"input.txt"};
+        Orchestrator testRunner = new Orchestrator(printStream, "input.txt");
 
         // WHEN
-        Main.mainWithPrinter(inputFileArgs, printStream);
+        testRunner.compute();
 
         // THEN
         String output = new String(outputStream.toByteArray());
-        assertEquals("1 3 N\n5 1 E", output);
+        assertEquals("1 3 N\r\n" +
+                "5 1 E\r\n", output);
     }
 }
