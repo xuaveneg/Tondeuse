@@ -77,4 +77,30 @@ public class MowerTest {
         // THEN
         assertEquals(new Mower(new Position(3, 3), Direction.SOUTH), mower);
     }
+
+    @Test
+    public void should_print_mower() {
+        // GIVEN
+        Mower mower = new Mower(new Position(2, 3), Direction.EAST);
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        mower.print(printer);
+
+        // THEN
+        assertEquals("2 3 E", printer.toString());
+    }
+
+    @Test
+    public void should_print_other_mower() {
+        // GIVEN
+        Mower mower = new Mower(new Position(4, 1), Direction.WEST);
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        mower.print(printer);
+
+        // THEN
+        assertEquals("4 1 W", printer.toString());
+    }
 }

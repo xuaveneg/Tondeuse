@@ -41,4 +41,10 @@ public class Mower {
                 ", direction=" + direction +
                 '}';
     }
+
+    public void print(StringBuilder printer) {
+        position.print(printer);
+        printer.append(' ');
+        direction.print(printer);
+    }
 }
