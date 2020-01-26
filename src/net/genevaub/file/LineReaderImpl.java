@@ -11,7 +11,8 @@ public class LineReaderImpl implements LineReader {
         this.lawnBuilder = lawnBuilder;
     }
 
-    public void readLine(final String line) {
+    @Override
+    public void readLine(final String line) throws ParserException {
         if (LineType.LAWN_SIZE.equals(currentLineType)) {
             readLawnSizeLine(line);
         } else if (LineType.MOWER_INITIAL_POSITION.equals(currentLineType)) {
@@ -27,25 +28,43 @@ public class LineReaderImpl implements LineReader {
         lawn.print();
     }
 
-    private void readMowerMovesLine(final String line) {
+    private void readMowerMovesLine(final String line) throws ParserException {
         for (final char token : line.toCharArray()) {
-            lawn.moveLastMower(Move.of(token).orElse(null));
+            final Move move = Move.of(token)
+                    .orElseThrow(() -> new ParserException(ParserException.ParserTypeException.MOVE_NOT_FOUND));
+            lawn.moveLastMower(move);
         }
     }
 
-    private void readMowerInitialPositionLine(final String line) {
+    private void readMowerInitialPositionLine(final String line) throws ParserException {
         final String[] initialPositionTokens = line.split(" ");
-        final int x = Integer.parseInt(initialPositionTokens[0]);
-        final int y = Integer.parseInt(initialPositionTokens[1]);
-        final char direction = initialPositionTokens[2].charAt(0);
-        lawn.addMower(new Position(x, y), Direction.of(direction).orElse(null));
+        if (initialPositionTokens.length != 3) {
+            throw new ParserException(ParserException.ParserTypeException.MOWER_INITIAL_POSITION_LINE_UNREADABLE);
+        }
+        try {
+            final int x = Integer.parseInt(initialPositionTokens[0]);
+            final int y = Integer.parseInt(initialPositionTokens[1]);
+            final char direction = initialPositionTokens[2].charAt(0);
+            final Direction directionEnum = Direction.of(direction)
+                    .orElseThrow(() -> new ParserException(ParserException.ParserTypeException.DIRECTION_NOT_FOUND));
+            lawn.addMower(new Position(x, y), directionEnum);
+        } catch (NumberFormatException e) {
+            throw new ParserException(ParserException.ParserTypeException.POSITION_NOT_COMPLETE);
+        }
     }
 
-    private void readLawnSizeLine(final String line) {
+    private void readLawnSizeLine(final String line) throws ParserException {
         final String[] sizeTokens = line.split(" ");
-        final int x = Integer.parseInt(sizeTokens[0]);
-        final int y = Integer.parseInt(sizeTokens[1]);
-        lawn = lawnBuilder.withSize(new Position(x, y)).build();
+        if (sizeTokens.length != 2) {
+            throw new ParserException(ParserException.ParserTypeException.LAWN_SIZE_LINE_UNREADABLE);
+        }
+        try {
+            final int x = Integer.parseInt(sizeTokens[0]);
+            final int y = Integer.parseInt(sizeTokens[1]);
+            lawn = lawnBuilder.withSize(new Position(x, y)).build();
+        } catch (NumberFormatException e) {
+            throw new ParserException(ParserException.ParserTypeException.POSITION_NOT_COMPLETE);
+        }
     }
 
     private void switchToNextLineType() {

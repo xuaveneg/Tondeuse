@@ -13,21 +13,21 @@ public class ParserImpl implements Parser {
     }
 
     @Override
-    public void parse(final String input) {
+    public void parse(final String input) throws ParserException {
         try (final FileInputStream inputStream = new FileInputStream(input)) {
             readInputStream(inputStream);
         } catch (final IOException e) {
-            e.printStackTrace();
+            throw new ParserException(e);
         }
     }
 
-    private void readInputStream(final FileInputStream inputStream) throws IOException {
+    private void readInputStream(final FileInputStream inputStream) throws IOException, ParserException {
         try (final InputStreamReader reader = new InputStreamReader(inputStream)) {
             readBuffered(new BufferedReader(reader));
         }
     }
 
-    private void readBuffered(final BufferedReader bufferedReader) throws IOException {
+    private void readBuffered(final BufferedReader bufferedReader) throws IOException, ParserException {
         String line = bufferedReader.readLine();
         while (line != null) {
             readLine(line);
@@ -36,7 +36,7 @@ public class ParserImpl implements Parser {
         lineReader.print();
     }
 
-    private void readLine(final String line) {
+    private void readLine(final String line) throws ParserException {
         lineReader.readLine(line);
     }
 }

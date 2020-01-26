@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class ParserTest {
 
     @Test
-    public void should_create_lawn_with_right_size_from_first_line() {
+    public void should_create_lawn_with_right_size_from_first_line() throws ParserException {
         // GIVEN
         final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
         final Parser parser = new ParserImpl(new LineReaderImpl(lawnBuilderMock));
@@ -24,7 +24,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_one_line() {
+    public void should_read_one_line() throws ParserException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -37,7 +37,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_three_line() {
+    public void should_read_three_line() throws ParserException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -50,7 +50,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_five_line() {
+    public void should_read_five_line() throws ParserException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -60,5 +60,15 @@ public class ParserTest {
 
         // THEN
         assertEquals(5, lineReaderMock.getNLineRead());
+    }
+
+    @Test(expected = ParserException.class)
+    public void should_fail_when_reading_inexistant_file() throws ParserException {
+        // GIVEN
+        final LineReaderMock lineReaderMock = new LineReaderMock();
+        final Parser parser = new ParserImpl(lineReaderMock);
+
+        // WHEN
+        parser.parse("not-found.txt");
     }
 }
