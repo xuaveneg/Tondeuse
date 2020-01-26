@@ -1,5 +1,6 @@
 package net.genevaub.lawnmower;
 
+import net.genevaub.mocks.MowerListMock;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +17,6 @@ public class LawnBuilderTest {
                 .build();
 
         // THEN
-        assertEquals(new LawnImpl(new Position(4, 5)), lawn);
+        assertEquals(new LawnImpl(new Position(4, 5), new MowerListMock()), lawn);
     }
 }

@@ -12,6 +12,6 @@ public class LawnBuilderImpl implements LawnBuilder {
 
     @Override
     public Lawn build() {
-        return new LawnImpl(size);
+        return new LawnImpl(size, new MowerListImpl());
     }
 }

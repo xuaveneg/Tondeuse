@@ -5,19 +5,21 @@ import java.util.Objects;
 public class LawnImpl implements Lawn {
 
     private final Position size;
+    private final MowerList mowerListMock;
 
-    public LawnImpl(Position size) {
+    public LawnImpl(Position size, MowerList mowerListMock) {
         this.size = size;
+        this.mowerListMock = mowerListMock;
     }
 
     @Override
     public void addMower(Position initialPosition, Direction direction) {
-
+        mowerListMock.addMower(new Mower(initialPosition, direction));
     }
 
     @Override
     public void moveLastMower(Move move) {
-
+        mowerListMock.moveLastMower(move, size);
     }
 
     @Override
