@@ -24,6 +24,11 @@ public class LawnMock implements Lawn {
         mowers.get(mowers.size() - 1).move(move, size);
     }
 
+    @Override
+    public void print() {
+
+    }
+
     public Position getSize() {
         return size;
     }
