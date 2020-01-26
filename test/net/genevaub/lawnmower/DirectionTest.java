@@ -206,4 +206,52 @@ public class DirectionTest {
         // THEN
         assertEquals(Direction.EAST, rotated);
     }
+
+    @Test
+    public void should_print_east() {
+        // GIVEN
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        Direction.EAST.print(printer);
+
+        // THEN
+        assertEquals("E", printer.toString());
+    }
+
+    @Test
+    public void should_print_north() {
+        // GIVEN
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        Direction.NORTH.print(printer);
+
+        // THEN
+        assertEquals("N", printer.toString());
+    }
+
+    @Test
+    public void should_print_south() {
+        // GIVEN
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        Direction.SOUTH.print(printer);
+
+        // THEN
+        assertEquals("S", printer.toString());
+    }
+
+    @Test
+    public void should_print_west() {
+        // GIVEN
+        StringBuilder printer = new StringBuilder();
+
+        // WHEN
+        Direction.WEST.print(printer);
+
+        // THEN
+        assertEquals("W", printer.toString());
+    }
 }

@@ -60,4 +60,8 @@ public enum Direction {
         }
         return this;
     }
+
+    public void print(StringBuilder printer) {
+        printer.append(direction);
+    }
 }
