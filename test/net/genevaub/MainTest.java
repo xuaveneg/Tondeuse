@@ -1,5 +1,7 @@
 package net.genevaub;
 
+import net.genevaub.file.Parser;
+import net.genevaub.file.ParserImpl;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -14,7 +16,8 @@ public class MainTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
-        Orchestrator testRunner = new Orchestrator(printStream, "input.txt", null);
+        Parser fileParser = new ParserImpl();
+        Orchestrator testRunner = new Orchestrator(printStream, "input.txt", fileParser);
 
         // WHEN
         testRunner.compute();

@@ -10,6 +10,7 @@ public class Orchestrator {
 
     Orchestrator(PrintStream printStream, String inputFile, Parser parser) {
         this.printStream = printStream;
+        parser.parse(inputFile);
     }
 
     void compute() {
