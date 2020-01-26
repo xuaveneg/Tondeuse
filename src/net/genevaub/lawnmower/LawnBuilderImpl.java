@@ -5,4 +5,9 @@ public class LawnBuilderImpl implements LawnBuilder {
     public void withSize(Position size) {
 
     }
+
+    @Override
+    public void addMower(Position initialPosition, Direction direction) {
+
+    }
 }
