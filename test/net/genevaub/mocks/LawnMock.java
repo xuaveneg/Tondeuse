@@ -20,7 +20,9 @@ public class LawnMock implements Lawn {
 
     @Override
     public void moveLastMower(final Move move) {
-        mowers.get(mowers.size() - 1).move(move, size);
+        final int lastIndex = mowers.size() - 1;
+        final Mower lastMower = mowers.get(lastIndex);
+        lastMower.move(move, size);
     }
 
     @Override

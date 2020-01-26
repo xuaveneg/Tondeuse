@@ -14,7 +14,8 @@ public class MowerListImpl implements MowerList {
 
     @Override
     public void moveLastMower(final Move move, final Position limit) {
-        final Mower lastMower = mowers.get(mowers.size() - 1);
+        final int lastIndex = mowers.size() - 1;
+        final Mower lastMower = mowers.get(lastIndex);
         lastMower.move(move, limit);
     }
 

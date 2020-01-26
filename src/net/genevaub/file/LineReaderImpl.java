@@ -48,7 +48,7 @@ public class LineReaderImpl implements LineReader {
             final Direction directionEnum = Direction.of(direction)
                     .orElseThrow(() -> new ParserException(ParserException.ParserTypeException.DIRECTION_NOT_FOUND));
             lawn.addMower(new Position(x, y), directionEnum);
-        } catch (NumberFormatException e) {
+        } catch (final NumberFormatException e) {
             throw new ParserException(ParserException.ParserTypeException.POSITION_NOT_COMPLETE);
         }
     }
@@ -61,8 +61,9 @@ public class LineReaderImpl implements LineReader {
         try {
             final int x = Integer.parseInt(sizeTokens[0]);
             final int y = Integer.parseInt(sizeTokens[1]);
-            lawn = lawnBuilder.withSize(new Position(x, y)).build();
-        } catch (NumberFormatException e) {
+            lawn = lawnBuilder.withSize(new Position(x, y))
+                    .build();
+        } catch (final NumberFormatException e) {
             throw new ParserException(ParserException.ParserTypeException.POSITION_NOT_COMPLETE);
         }
     }
