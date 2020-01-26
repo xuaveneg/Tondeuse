@@ -12,9 +12,9 @@ public class Mower {
         this.direction = direction;
     }
 
-    public void move(Move move) {
+    public void move(Move move, Position limit) {
         if (Move.FORWARD.equals(move)) {
-            position = position.translate(direction);
+            position = position.translate(direction, limit);
             return;
         }
         direction = direction.rotate(move);

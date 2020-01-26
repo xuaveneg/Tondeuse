@@ -21,7 +21,7 @@ public class LawnBuilderMock implements LawnBuilder {
 
     @Override
     public void moveLastMower(Move move) {
-        mowers.get(mowers.size() - 1).move(move);
+        mowers.get(mowers.size() - 1).move(move, size);
     }
 
     public Position getSize() {

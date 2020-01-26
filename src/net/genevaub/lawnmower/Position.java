@@ -11,18 +11,24 @@ public class Position {
         this.y = y;
     }
 
-    public Position translate(Direction direction) {
+    public Position translate(Direction direction, Position limit) {
+        int newX = this.x;
+        int newY = this.y;
         switch (direction) {
             case NORTH:
-                return new Position(x, y+1);
+                newY = Math.min(this.y + 1, limit.y);
+                break;
             case EAST:
-                return new Position(x+1, y);
+                newX = Math.min(this.x + 1, limit.x);
+                break;
             case SOUTH:
-                return new Position(x, y-1);
+                newY = Math.max(this.y - 1, 0);
+                break;
             case WEST:
-                return new Position(x-1, y);
+                newX = Math.max(this.x - 1, 0);
+                break;
         }
-        return this;
+        return new Position(newX, newY);
     }
 
     @Override
