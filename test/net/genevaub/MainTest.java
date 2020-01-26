@@ -1,8 +1,10 @@
 package net.genevaub;
 
+import net.genevaub.file.LineReaderImpl;
 import net.genevaub.file.Parser;
 import net.genevaub.file.ParserImpl;
 import net.genevaub.lawnmower.LawnBuilderImpl;
+import net.genevaub.utils.FileUtils;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -18,10 +20,11 @@ public class MainTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         Orchestrator testRunner = new Orchestrator(printStream);
-        Parser fileParser = new ParserImpl(new LawnBuilderImpl());
+        final LawnBuilderImpl lawnBuilder = new LawnBuilderImpl();
+        Parser fileParser = new ParserImpl(lawnBuilder, new LineReaderImpl(lawnBuilder));
 
         // WHEN
-        testRunner.compute(fileParser, "input.txt");
+        testRunner.compute(fileParser, FileUtils.getTestResourceFile("input.txt"));
 
         // THEN
         String output = new String(outputStream.toByteArray());
