@@ -13,7 +13,12 @@ public class LineReaderImpl implements LineReader {
     }
 
     public void readLine(String line) {
-        lawnBuilder.withSize(new Position(3, 7));
+        if (LineType.LAWN_SIZE.equals(currentLineType)) {
+            String[] sizeTokens = line.split(" ");
+            int x = Integer.parseInt(sizeTokens[0]);
+            int y = Integer.parseInt(sizeTokens[1]);
+            lawnBuilder.withSize(new Position(x, y));
+        }
         switchToNextLineType();
     }
 
