@@ -1,10 +1,7 @@
 package net.genevaub.lawnmower;
 
 public interface LawnBuilder {
+    LawnBuilder withSize(Position size);
 
-    void withSize(Position size);
-
-    void addMower(Position initialPosition, Direction direction);
-
-    void moveLastMower(Move move);
+    Lawn build();
 }

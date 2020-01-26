@@ -9,7 +9,7 @@ public class MowerListTest {
     @Test
     public void should_add_and_move_mower_in_mower_list() {
         // GIVEN
-        MowerList mowerList = new MowerList();
+        MowerListImpl mowerList = new MowerListImpl();
         Mower mower = new Mower(new Position(2, 3), Direction.SOUTH);
 
         // WHEN
@@ -23,7 +23,7 @@ public class MowerListTest {
     @Test
     public void should_add_and_not_move_not_last_mower_in_mower_list() {
         // GIVEN
-        MowerList mowerList = new MowerList();
+        MowerListImpl mowerList = new MowerListImpl();
         Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
         Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
 
@@ -39,7 +39,7 @@ public class MowerListTest {
     @Test
     public void should_add_and_move_last_mower_in_mower_list() {
         // GIVEN
-        MowerList mowerList = new MowerList();
+        MowerListImpl mowerList = new MowerListImpl();
         Mower firstMower = new Mower(new Position(2, 3), Direction.SOUTH);
         Mower lastMower = new Mower(new Position(2, 3), Direction.SOUTH);
 

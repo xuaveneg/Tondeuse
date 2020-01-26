@@ -1,34 +1,30 @@
 package net.genevaub.mocks;
 
-import net.genevaub.lawnmower.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.genevaub.lawnmower.Lawn;
+import net.genevaub.lawnmower.LawnBuilder;
+import net.genevaub.lawnmower.Position;
 
 public class LawnBuilderMock implements LawnBuilder {
     private Position size;
-    private List<Mower> mowers = new ArrayList<>();
+    private LawnMock lawnMock;
 
     @Override
-    public void withSize(Position size) {
+    public LawnBuilder withSize(Position size) {
         this.size = size;
+        return this;
     }
 
     @Override
-    public void addMower(Position initialPosition, Direction direction) {
-        mowers.add(new Mower(initialPosition, direction));
-    }
-
-    @Override
-    public void moveLastMower(Move move) {
-        mowers.get(mowers.size() - 1).move(move, size);
+    public Lawn build() {
+        lawnMock = new LawnMock(size);
+        return lawnMock;
     }
 
     public Position getSize() {
-        return size;
+        return this.size;
     }
 
-    public List<Mower> getMowers() {
-        return mowers;
+    public LawnMock getLawnMock() {
+        return lawnMock;
     }
 }

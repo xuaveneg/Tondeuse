@@ -2,6 +2,7 @@ package net.genevaub.file;
 
 import net.genevaub.lawnmower.Position;
 import net.genevaub.mocks.LawnBuilderMock;
+import net.genevaub.mocks.LawnMock;
 import net.genevaub.mocks.LineReaderMock;
 import net.genevaub.utils.FileUtils;
 import org.junit.Test;

@@ -1,14 +1,12 @@
 package net.genevaub.file;
 
-import net.genevaub.lawnmower.Direction;
-import net.genevaub.lawnmower.LawnBuilder;
-import net.genevaub.lawnmower.Move;
-import net.genevaub.lawnmower.Position;
+import net.genevaub.lawnmower.*;
 
 public class LineReaderImpl implements LineReader {
 
-    private final LawnBuilder lawnBuilder;
+    private Lawn lawn;
     private LineType currentLineType = LineType.LAWN_SIZE;
+    private final LawnBuilder lawnBuilder;
 
     public LineReaderImpl(LawnBuilder lawnBuilder) {
         this.lawnBuilder = lawnBuilder;
@@ -27,7 +25,7 @@ public class LineReaderImpl implements LineReader {
 
     private void readMowerMovesLine(String line) {
         for (char token : line.toCharArray()) {
-            lawnBuilder.moveLastMower(Move.of(token).orElse(null));
+            lawn.moveLastMower(Move.of(token).orElse(null));
         }
     }
 
@@ -36,14 +34,14 @@ public class LineReaderImpl implements LineReader {
         int x = Integer.parseInt(initialPositionTokens[0]);
         int y = Integer.parseInt(initialPositionTokens[1]);
         char direction = initialPositionTokens[2].charAt(0);
-        lawnBuilder.addMower(new Position(x, y), Direction.of(direction).orElse(null));
+        lawn.addMower(new Position(x, y), Direction.of(direction).orElse(null));
     }
 
     private void readLawnSizeLine(String line) {
         String[] sizeTokens = line.split(" ");
         int x = Integer.parseInt(sizeTokens[0]);
         int y = Integer.parseInt(sizeTokens[1]);
-        lawnBuilder.withSize(new Position(x, y));
+        lawn = lawnBuilder.withSize(new Position(x, y)).build();
     }
 
     private void switchToNextLineType() {

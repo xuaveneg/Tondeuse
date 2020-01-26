@@ -1,9 +1,11 @@
 package net.genevaub.file;
 
+import net.genevaub.lawnmower.LawnBuilder;
 import net.genevaub.lawnmower.Mower;
 import net.genevaub.lawnmower.Direction;
 import net.genevaub.lawnmower.Position;
 import net.genevaub.mocks.LawnBuilderMock;
+import net.genevaub.mocks.LawnMock;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -35,7 +37,7 @@ public class LineReaderTest {
 
         // THEN
         assertEquals(new Mower(new Position(1, 2), Direction.NORTH),
-                lawnBuilderMock.getMowers().get(0));
+                lawnBuilderMock.getLawnMock().getMowers().get(0));
     }
 
     @Test
@@ -51,6 +53,6 @@ public class LineReaderTest {
 
         // THEN
         assertEquals(new Mower(new Position(1, 4), Direction.NORTH),
-                lawnBuilderMock.getMowers().get(0));
+                lawnBuilderMock.getLawnMock().getMowers().get(0));
     }
 }
