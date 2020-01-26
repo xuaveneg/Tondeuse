@@ -6,10 +6,10 @@ import net.genevaub.file.ParserImpl;
 public class Main {
 
     public static void main(String[] args) {
+        Orchestrator runner = new Orchestrator(System.out);
         Parser fileParser = new ParserImpl();
         String fileName = args[0];
-        Orchestrator runner = new Orchestrator(System.out, fileName, fileParser);
-        runner.compute();
+        runner.compute(fileParser, fileName);
     }
 
 }

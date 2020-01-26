@@ -15,11 +15,11 @@ public class OrchestratorTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
+        Orchestrator testRunner = new Orchestrator(printStream);
         ParserMock parserMock = new ParserMock();
-        Orchestrator testRunner = new Orchestrator(printStream, "input.txt", parserMock);
 
         // WHEN
-        testRunner.compute();
+        testRunner.compute(parserMock, "input.txt");
 
         // THEN
         assertEquals("input.txt", parserMock.getInput());

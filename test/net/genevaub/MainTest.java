@@ -16,11 +16,11 @@ public class MainTest {
         // GIVEN
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
+        Orchestrator testRunner = new Orchestrator(printStream);
         Parser fileParser = new ParserImpl();
-        Orchestrator testRunner = new Orchestrator(printStream, "input.txt", fileParser);
 
         // WHEN
-        testRunner.compute();
+        testRunner.compute(fileParser, "input.txt");
 
         // THEN
         String output = new String(outputStream.toByteArray());

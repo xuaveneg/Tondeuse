@@ -8,12 +8,12 @@ public class Orchestrator {
 
     private PrintStream printStream;
 
-    Orchestrator(PrintStream printStream, String inputFile, Parser parser) {
+    Orchestrator(PrintStream printStream) {
         this.printStream = printStream;
-        parser.parse(inputFile);
     }
 
-    void compute() {
+    void compute(Parser parser, String inputFile) {
+        parser.parse(inputFile);
         printStream.println("1 3 N");
         printStream.println("5 1 E");
     }
