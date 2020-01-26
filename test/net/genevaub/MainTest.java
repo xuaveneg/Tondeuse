@@ -21,7 +21,8 @@ public class MainTest {
         PrintStream printStream = new PrintStream(outputStream);
         Orchestrator testRunner = new Orchestrator(printStream);
         final LawnBuilderImpl lawnBuilder = new LawnBuilderImpl();
-        Parser fileParser = new ParserImpl(lawnBuilder, new LineReaderImpl(lawnBuilder));
+        LineReaderImpl lineReader = new LineReaderImpl(lawnBuilder);
+        Parser fileParser = new ParserImpl(lineReader);
 
         // WHEN
         testRunner.compute(fileParser, FileUtils.getTestResourceFile("input.txt"));

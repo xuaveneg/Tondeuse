@@ -1,6 +1,7 @@
 package net.genevaub.file;
 
 import net.genevaub.lawnmower.LawnBuilder;
+import net.genevaub.lawnmower.Position;
 
 public class LineReaderImpl implements LineReader {
 
@@ -12,6 +13,7 @@ public class LineReaderImpl implements LineReader {
     }
 
     public void readLine(String line) {
+        lawnBuilder.withSize(new Position(3, 7));
         switchToNextLineType();
     }
 

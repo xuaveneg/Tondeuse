@@ -14,7 +14,7 @@ public class ParserTest {
     public void should_create_lawn_with_right_size_from_first_line() {
         // GIVEN
         LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
-        Parser parser = new ParserImpl(lawnBuilderMock, new LineReaderImpl(lawnBuilderMock));
+        Parser parser = new ParserImpl(new LineReaderImpl(lawnBuilderMock));
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-line-file.txt"));
@@ -26,9 +26,8 @@ public class ParserTest {
     @Test
     public void should_read_one_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
         LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lawnBuilderMock, lineReaderMock);
+        Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-line-file.txt"));
@@ -40,9 +39,8 @@ public class ParserTest {
     @Test
     public void should_read_three_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
         LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lawnBuilderMock, lineReaderMock);
+        Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("one-mower-file.txt"));
@@ -54,9 +52,8 @@ public class ParserTest {
     @Test
     public void should_read_five_line() {
         // GIVEN
-        LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
         LineReaderMock lineReaderMock = new LineReaderMock();
-        Parser parser = new ParserImpl(lawnBuilderMock, lineReaderMock);
+        Parser parser = new ParserImpl(lineReaderMock);
 
         // WHEN
         parser.parse(FileUtils.getTestResourceFile("input.txt"));

@@ -10,7 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Orchestrator runner = new Orchestrator(System.out);
         final LawnBuilderImpl lawnBuilder = new LawnBuilderImpl();
-        Parser fileParser = new ParserImpl(lawnBuilder, new LineReaderImpl(lawnBuilder));
+        LineReaderImpl lineReader = new LineReaderImpl(lawnBuilder);
+        Parser fileParser = new ParserImpl(lineReader);
         String fileName = args[0];
         runner.compute(fileParser, fileName);
     }
