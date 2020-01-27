@@ -3,7 +3,7 @@ package net.genevaub.lawnmower;
 import java.io.PrintStream;
 import java.util.Objects;
 
-public class LawnImpl implements Lawn {
+public final class LawnImpl implements Lawn {
     private final Position size;
     private final MowerList mowerList;
     private final PrintStream stream;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MowerListImpl implements MowerList {
+public final class MowerListImpl implements MowerList {
     protected final List<Mower> mowers = new ArrayList<>();
 
     @Override

@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ParserImpl implements Parser {
+public final class ParserImpl implements Parser {
     private final LineReader lineReader;
 
     public ParserImpl(final LineReader lineReader) {

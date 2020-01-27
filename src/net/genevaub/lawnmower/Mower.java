@@ -2,7 +2,7 @@ package net.genevaub.lawnmower;
 
 import java.util.Objects;
 
-public class Mower {
+public final class Mower {
     private final Position limit;
     private Position position;
     private Direction direction;
