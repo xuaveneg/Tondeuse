@@ -1,5 +1,6 @@
 package net.genevaub.file;
 
+import net.genevaub.lawnmower.LawnException;
 import net.genevaub.lawnmower.Position;
 import net.genevaub.mocks.LawnBuilderMock;
 import net.genevaub.mocks.LineReaderMock;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class ParserTest {
 
     @Test
-    public void should_create_lawn_with_right_size_from_first_line() throws ParserException {
+    public void should_create_lawn_with_right_size_from_first_line() throws ParserException, LawnException {
         // GIVEN
         final LawnBuilderMock lawnBuilderMock = new LawnBuilderMock();
         final Parser parser = new ParserImpl(new LineReaderImpl(lawnBuilderMock));
@@ -24,7 +25,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_one_line() throws ParserException {
+    public void should_read_one_line() throws ParserException, LawnException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -37,7 +38,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_three_line() throws ParserException {
+    public void should_read_three_line() throws ParserException, LawnException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -50,7 +51,7 @@ public class ParserTest {
     }
 
     @Test
-    public void should_read_five_line() throws ParserException {
+    public void should_read_five_line() throws ParserException, LawnException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);
@@ -63,7 +64,7 @@ public class ParserTest {
     }
 
     @Test(expected = ParserException.class)
-    public void should_fail_when_reading_inexistant_file() throws ParserException {
+    public void should_fail_when_reading_inexistant_file() throws ParserException, LawnException {
         // GIVEN
         final LineReaderMock lineReaderMock = new LineReaderMock();
         final Parser parser = new ParserImpl(lineReaderMock);

@@ -15,12 +15,12 @@ public class LawnImpl implements Lawn {
     }
 
     @Override
-    public void addMower(final Position initialPosition, final Direction direction) {
-        mowerList.addMower(new Mower(initialPosition, direction));
+    public void addMower(final Position initialPosition, final Direction direction) throws LawnException {
+        mowerList.addMower(new Mower(initialPosition, direction, size));
     }
 
     @Override
-    public void moveLastMower(final Move move) {
+    public void moveLastMower(final Move move) throws LawnException {
         mowerList.moveLastMower(move, size);
     }
 

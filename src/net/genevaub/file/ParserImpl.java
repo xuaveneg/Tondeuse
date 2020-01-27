@@ -1,5 +1,7 @@
 package net.genevaub.file;
 
+import net.genevaub.lawnmower.LawnException;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +15,7 @@ public class ParserImpl implements Parser {
     }
 
     @Override
-    public void parse(final String input) throws ParserException {
+    public void parse(final String input) throws ParserException, LawnException {
         try (final FileInputStream inputStream = new FileInputStream(input)) {
             readInputStream(inputStream);
         } catch (final IOException e) {
@@ -21,13 +23,13 @@ public class ParserImpl implements Parser {
         }
     }
 
-    private void readInputStream(final FileInputStream inputStream) throws IOException, ParserException {
+    private void readInputStream(final FileInputStream inputStream) throws IOException, ParserException, LawnException {
         try (final InputStreamReader reader = new InputStreamReader(inputStream)) {
             readBuffered(new BufferedReader(reader));
         }
     }
 
-    private void readBuffered(final BufferedReader bufferedReader) throws IOException, ParserException {
+    private void readBuffered(final BufferedReader bufferedReader) throws IOException, ParserException, LawnException {
         String line = bufferedReader.readLine();
         while (line != null) {
             readLine(line);
@@ -36,7 +38,7 @@ public class ParserImpl implements Parser {
         lineReader.print();
     }
 
-    private void readLine(final String line) throws ParserException {
+    private void readLine(final String line) throws ParserException, LawnException {
         lineReader.readLine(line);
     }
 }

@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class LawnTest {
 
     @Test
-    public void should_add_one_mower_on_lawn() {
+    public void should_add_one_mower_on_lawn() throws LawnException {
         // GIVEN
         final MowerListMock mowerListMock = new MowerListMock();
         final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
@@ -27,7 +27,7 @@ public class LawnTest {
     }
 
     @Test
-    public void should_add_three_mower_on_lawn() {
+    public void should_add_three_mower_on_lawn() throws LawnException {
         // GIVEN
         final MowerListMock mowerListMock = new MowerListMock();
         final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
@@ -42,7 +42,7 @@ public class LawnTest {
     }
 
     @Test
-    public void should_move_mower_on_lawn() {
+    public void should_move_mower_on_lawn() throws LawnException {
         // GIVEN
         final MowerListMock mowerListMock = new MowerListMock();
         final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
@@ -56,7 +56,7 @@ public class LawnTest {
     }
 
     @Test
-    public void should_move_last_mower_on_lawn() {
+    public void should_move_last_mower_on_lawn() throws LawnException {
         // GIVEN
         final MowerListMock mowerListMock = new MowerListMock();
         final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
@@ -73,7 +73,7 @@ public class LawnTest {
     }
 
     @Test
-    public void should_move_intermediate_mower_on_lawn() {
+    public void should_move_intermediate_mower_on_lawn() throws LawnException {
         // GIVEN
         final MowerListMock mowerListMock = new MowerListMock();
         final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
@@ -92,7 +92,7 @@ public class LawnTest {
     }
 
     @Test
-    public void should_print_in_stream_when_calling_print() {
+    public void should_print_in_stream_when_calling_print() throws LawnException {
         // GIVEN
         final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(outputStream);
@@ -114,5 +114,25 @@ public class LawnTest {
         assertEquals("3 3 E\n" +
                 "2 3 W\n" +
                 "4 3 S", output);
+    }
+
+    @Test(expected = LawnException.class)
+    public void should_fail_with_mower_out_of_lawn_on_x() throws LawnException {
+        // GIVEN
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+
+        // WHEN
+        lawn.addMower(new Position(5, 3), Direction.NORTH);
+    }
+
+    @Test(expected = LawnException.class)
+    public void should_fail_with_mower_out_of_lawn_on_y() throws LawnException {
+        // GIVEN
+        final MowerListMock mowerListMock = new MowerListMock();
+        final Lawn lawn = new LawnImpl(new Position(4, 4), mowerListMock, null);
+
+        // WHEN
+        lawn.addMower(new Position(3, 5), Direction.NORTH);
     }
 }

@@ -13,10 +13,10 @@ public class MowerListImpl implements MowerList {
     }
 
     @Override
-    public void moveLastMower(final Move move, final Position limit) {
+    public void moveLastMower(final Move move, final Position limit) throws LawnException {
         final int lastIndex = mowers.size() - 1;
         final Mower lastMower = mowers.get(lastIndex);
-        lastMower.move(move, limit);
+        lastMower.move(move);
     }
 
     @Override

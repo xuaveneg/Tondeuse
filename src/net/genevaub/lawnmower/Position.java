@@ -6,12 +6,15 @@ public class Position {
     private final int x;
     private final int y;
 
-    public Position(final int x, final int y) {
+    public Position(final int x, final int y) throws LawnException {
+        if (x < 0 || y < 0) {
+            throw new LawnException(LawnException.LawnExceptionType.POSITION_NEGATIVE);
+        }
         this.x = x;
         this.y = y;
     }
 
-    public Position translate(final Direction direction, final Position limit) {
+    public Position translate(final Direction direction, final Position limit) throws LawnException {
         int newX = x;
         int newY = y;
         switch (direction) {
@@ -57,5 +60,10 @@ public class Position {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public boolean isOutOf(final Position limit) {
+        return x > limit.x ||
+                y > limit.y;
     }
 }

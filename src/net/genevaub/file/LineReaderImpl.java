@@ -12,7 +12,7 @@ public class LineReaderImpl implements LineReader {
     }
 
     @Override
-    public void readLine(final String line) throws ParserException {
+    public void readLine(final String line) throws ParserException, LawnException {
         if (LineType.LAWN_SIZE.equals(currentLineType)) {
             readLawnSizeLine(line);
         } else if (LineType.MOWER_INITIAL_POSITION.equals(currentLineType)) {
@@ -28,7 +28,7 @@ public class LineReaderImpl implements LineReader {
         lawn.print();
     }
 
-    private void readMowerMovesLine(final String line) throws ParserException {
+    private void readMowerMovesLine(final String line) throws ParserException, LawnException {
         for (final char token : line.toCharArray()) {
             final Move move = Move.of(token)
                     .orElseThrow(() -> new ParserException(ParserException.ParserTypeException.MOVE_NOT_FOUND));
@@ -36,7 +36,7 @@ public class LineReaderImpl implements LineReader {
         }
     }
 
-    private void readMowerInitialPositionLine(final String line) throws ParserException {
+    private void readMowerInitialPositionLine(final String line) throws ParserException, LawnException {
         final String[] initialPositionTokens = line.split(" ");
         if (initialPositionTokens.length != 3) {
             throw new ParserException(ParserException.ParserTypeException.MOWER_INITIAL_POSITION_LINE_UNREADABLE);
@@ -53,7 +53,7 @@ public class LineReaderImpl implements LineReader {
         }
     }
 
-    private void readLawnSizeLine(final String line) throws ParserException {
+    private void readLawnSizeLine(final String line) throws ParserException, LawnException {
         final String[] sizeTokens = line.split(" ");
         if (sizeTokens.length != 2) {
             throw new ParserException(ParserException.ParserTypeException.LAWN_SIZE_LINE_UNREADABLE);

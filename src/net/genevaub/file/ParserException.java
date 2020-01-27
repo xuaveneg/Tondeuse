@@ -3,7 +3,6 @@ package net.genevaub.file;
 import java.io.IOException;
 
 public class ParserException extends Exception {
-
     enum ParserTypeException {
         DIRECTION_NOT_FOUND("Direction inconnue."),
         MOVE_NOT_FOUND("Déplacement inconnu."),
@@ -17,21 +16,13 @@ public class ParserException extends Exception {
         ParserTypeException(final String message) {
             this.message = message;
         }
-
-        public String getMessage() {
-            return message;
-        }
     }
 
     ParserException(final ParserTypeException type) {
-        super(type.getMessage());
-    }
-
-    ParserException(final ParserTypeException type, final String message) {
-        super(type.getMessage() + message);
+        super(type.message);
     }
 
     ParserException(final IOException ioException) {
-        super(ParserTypeException.IO_EXCEPTION.getMessage(), ioException);
+        super(ParserTypeException.IO_EXCEPTION.message, ioException);
     }
 }

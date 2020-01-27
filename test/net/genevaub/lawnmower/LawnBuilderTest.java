@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class LawnBuilderTest {
 
     @Test
-    public void should_build_lawn_with_correct_size() {
+    public void should_build_lawn_with_correct_size() throws LawnException {
         // GIVEN
         final LawnBuilder lawnBuilder = new LawnBuilderImpl(null);
 
